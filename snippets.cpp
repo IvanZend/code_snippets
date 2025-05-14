@@ -51,7 +51,7 @@ bool Emg::emg_threshold_passed(uint8_t delta_percent)
 // calculate threshold based on a percentage deviation from average
 uint16_t Emg::filter_pass_threshold(uint32_t adc_val, uint8_t threshold_precent)
 {
-    uint32_t average_val = average_filter / NMBR_OF_SUMMED_SAMPLES;                    // get a single ADC value from a moving average
+    uint32_t average_val = average_filter / NMBR_OF_SUMMED_SAMPLES;   // get a single ADC value from a moving average
     return (average_val + ((average_val * threshold_precent) / 100));
 }
 
