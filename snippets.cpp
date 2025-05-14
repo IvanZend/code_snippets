@@ -93,8 +93,8 @@ Implemented a buffer-based data transmission routine with timestamped gesture an
 void Board::copy_sample_from_memory_to_ble_buf(uint16_t ble_buf_indx, uint32_t memory_indx)
 {
     uint16_t ble_byte_indx = ble_buf_indx * BLE_FRAME_BYTES;
-    ble_buf[STRING_HANDLER_BYTES + (ble_byte_indx)] = frames_ring_buf.buf_array[memory_indx].timestamp>>ONE_BYTE_SHIFT;			// split 16-bit timestamp into two 8-bit bytes
-    ble_buf[STRING_HANDLER_BYTES + (ble_byte_indx + 1)] = frames_ring_buf.buf_array[memory_indx].timestamp;						// 
+    ble_buf[STRING_HANDLER_BYTES + (ble_byte_indx)] = frames_ring_buf.buf_array[memory_indx].timestamp>>ONE_BYTE_SHIFT;   // split 16-bit timestamp into two 8-bit bytes
+    ble_buf[STRING_HANDLER_BYTES + (ble_byte_indx + 1)] = frames_ring_buf.buf_array[memory_indx].timestamp;               // 
     ble_buf[STRING_HANDLER_BYTES + (ble_byte_indx + 2)] = frames_ring_buf.buf_array[memory_indx].gesture;
     ble_buf[STRING_HANDLER_BYTES + (ble_byte_indx + 3)] = frames_ring_buf.buf_array[memory_indx].motor_current;
     ble_buf[STRING_HANDLER_BYTES + (ble_byte_indx + 4)] = frames_ring_buf.buf_array[memory_indx].battery_voltage;
